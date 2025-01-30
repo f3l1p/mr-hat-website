@@ -1,14 +1,44 @@
-// import Image from "next/image";
+"use client";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+
+// Import the functions you need from the SDKs you need
+
+import Link from "next/link";
 
 interface TableRowProps {
   date: string;
   place: string;
   city: string;
   state: string;
+  price: string;
+  location: string;
 }
 
 export default function Home() {
-  const TableRow: React.FC<TableRowProps> = ({ date, place, city, state }) => {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  useEffect(() => {}, []);
+
+  const fetchData = async () => {
+    fetch("/api/notion")
+      .then((res) => res.json())
+      .then((data) => setEvents(data))
+      .catch((err) => console.error(err));
+  };
+
+  const TableRow: React.FC<TableRowProps> = ({
+    date,
+    place,
+    city,
+    state,
+    price,
+    location,
+  }) => {
     return (
       <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
         <th
@@ -23,8 +53,10 @@ export default function Home() {
             {city}/{state}
           </p>
         </td>
-        <td className="px-6 py-4"></td>
-        <td className="px-6 py-4"></td>
+        <td className="px-6 py-4">{price}</td>
+        <td className="px-6 py-4">
+          <Link href={location}>See Location</Link>
+        </td>
       </tr>
     );
   };
@@ -33,9 +65,12 @@ export default function Home() {
     <div className=" bg-[url(/images/background.jpg)] bg-cover w-full h-dvh bg-fixed ">
       <section className="grid grid-cols-2 w-full h-dvh">
         <div className="flex flex-col justify-center items-center">
-          {/* <Image src={""} alt="logo" width={100} height={100} /> */}
-
-          <h1 className="text-8xl font-bold text-white ">MR HAT</h1>
+          <Image
+            src={"/images/mr-hat-logo_2.png"}
+            alt="logo"
+            width={600}
+            height={600}
+          />
         </div>
 
         <div className=""></div>
@@ -55,20 +90,25 @@ export default function Home() {
                   Lugar
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  --
+                  Price
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  --
+                  Location
                 </th>
               </tr>
             </thead>
             <tbody>
-              <TableRow
-                date="01/02/2025"
-                place="Old School 44"
-                city="Alicante"
-                state="Alicante"
-              />
+              {events.map(([key, value]) => (
+                <TableRow
+                  key={key}
+                  date={value.date}
+                  place={value.place}
+                  city={value.city}
+                  state={value.state}
+                  price={value.price}
+                  location={value.location}
+                />
+              ))}
             </tbody>
           </table>
         </div>
