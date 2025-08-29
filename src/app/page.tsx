@@ -62,7 +62,7 @@ export default function Home() {
 
   return (
     <div className="relative bg-[url(/images/background.jpg)] bg-cover bg-no-repeat bg-[right_5px]  md:bg-cover w-full h-dvh md:bg-fixed">
-      <div className=" absolute w-full h-full z-0 bg-white/20  backdrop-blur-none"></div>
+      <div className=" absolute w-full h-full z-0 bg-white/20  backdrop-blur-none md:bg-white/0"></div>
       <section className="relative z-10 flex justify-center items-center md:grid md:grid-cols-2 w-full h-dvh ">
         <div className="flex flex-col justify-center items-center">
           <Image
@@ -75,8 +75,8 @@ export default function Home() {
         <div></div>
       </section>
 
-      <section className="bg-white w-full h-dvh p-8  md:p-20  ">
-        <h1 className="text-4xl font-bold">Próximos Eventos</h1>
+      <section className="bg-white w-full h-fit p-8  md:p-20  ">
+        <h1 className="text-4xl font-bold mb-8">Próximos Eventos</h1>
 
         <div className="relative overflow-x-auto">
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -112,19 +112,102 @@ export default function Home() {
           </table>
         </div>
       </section>
-      <section>
-        <h1 className="text-4xl font-bold">Contacto</h1>
 
-        <Link href="https://wa.me/34631175925" target="_blank">
-          {/* <Image
-            alt="Chat on WhatsApp"
-            src="/assets/WhatsAppButtonWhiteLarge.svg"
-            width={300}
-            height={300}
-            className="shadow-md rounded-lg"
-          /> */}
-          Click Here
-        </Link>
+      <div className="relative grid grid-cols-2 w-full h-dvh bg-yellow-500 overflow-hidden z-0">
+        <div className="absolute rotate-[70deg] -left-[116%] -top-[50%] bg-blue-200 h-[300%] w-full z-10"></div>
+        <div></div>
+        <div className=" relative p-20 z-20">
+          <h2 className="text-4xl font-bold mb-8">Bio</h2>
+          <p>
+            Jota Dominguez AKA Mr Hat <br />
+            Cuenta con mas de 20 años de experiencia en escenarios que abarca
+            desde Australia, Colombia y España. <br /> El carismatico cantante
+            colombiano afincado en Alicante, trae consigo una rica amalgama de
+            influencias culturales de estilos y sonidos que se reflejan en su
+            arte.
+          </p>
+          <p>
+            Infunde cada actuacion con una energia palable y una creatividad
+            desbordante. Desde fusiones afro-latinas hasta el rugido del rock y
+            el reggae, acompañado por su guitarra, un bajo envolvente y una
+            percusion palpitante. Su musicatrasciende fronteras y cautiva
+            corazones en todo el mundo.
+          </p>
+          <p>
+            Preparate para ser llevado en un viaje musical unico que celebra la
+            diversidad y la pasion de este talentoso artista.
+          </p>
+        </div>
+
+        {/* <div className=" absolute w-full h-full border-b-[400px] bg-blue-300  border-r-[300px] border-r-transparent"></div> */}
+      </div>
+
+      <div className="divider flex justify-center items-center w-full my-8 ">
+        <div className="bg-gradient-to-r from-gray-300 to-white w-full h-[1px]"></div>
+        <Image
+          src={"/images/pluma1.png"}
+          alt="pluma"
+          width={40}
+          height={40}
+          // className="animate-bounce"
+        />
+        <div className="bg-gradient-to-l from-gray-300 to-white w-full h-[1px]"></div>
+      </div>
+
+      {/* contact section */}
+      <section className="grid grid-cols-1 md:grid-cols-2">
+        <div className="flex flex-col items-center justify-center">
+          <h1 className="text-4xl font-bold mb-8">Contacto</h1>
+          <div id="urls">
+            <nav>
+              <div className="grid grid-flow-col gap-4">
+                <a>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    className="fill-current"
+                  >
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+                  </svg>
+                </a>
+                <a>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    className="fill-current"
+                  >
+                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                  </svg>
+                </a>
+                <a>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    className="fill-current"
+                  >
+                    <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+                  </svg>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <div className="w-full">
+          <Image
+            src={"/images/gabo.png"}
+            alt=""
+            width={100}
+            height={100}
+            className="h-full w-full"
+          />
+        </div>
       </section>
 
       <section>
