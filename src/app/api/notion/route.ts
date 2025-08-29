@@ -20,6 +20,7 @@ export async function GET(): Promise<NextResponse> {
 
     // Extract and format only necessary fields
     const formattedData = response.results
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .map((page: any) => {
         const properties = page.properties;
         const rawDate = properties.date?.date?.start || "";
